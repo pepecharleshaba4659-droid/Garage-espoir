@@ -1,0 +1,80 @@
+import { useState } from "react";
+import { Card, CardContent } from "@/components/ui/card";
+import { Button } from "@/components/ui/button";
+import { motion } from "framer-motion";
+import { Car, Key, Cpu, Phone } from "lucide-react";
+
+export default function GarageEspoirSite() {
+  const [open, setOpen] = useState(false);
+
+  return (
+    <div className="min-h-screen bg-gray-950 text-white">
+      {/* Hero */}
+      <div className="p-6 text-center bg-gradient-to-b from-blue-900 to-gray-950">
+        <motion.h1
+          initial={{ opacity: 0, y: -20 }}
+          animate={{ opacity: 1, y: 0 }}
+          className="text-4xl font-bold"
+        >
+          Garage Espoir
+        </motion.h1>
+        <p className="mt-2 text-gray-300">
+          Électronique automobile • Programmation clés • ECU • Diagnostic
+        </p>
+        <Button className="mt-4" onClick={() => setOpen(!open)}>
+          Contact rapide
+        </Button>
+
+        {open && (
+          <div className="mt-4 text-sm text-green-300">
+            WhatsApp: +225 XX XX XX XX XX
+          </div>
+        )}
+      </div>
+
+      {/* Services */}
+      <div className="grid md:grid-cols-3 gap-4 p-6">
+        <Card className="bg-gray-900">
+          <CardContent className="p-4">
+            <Key className="mb-2" />
+            <h2 className="font-bold">Programmation de clés</h2>
+            <p className="text-sm text-gray-400">
+              Ajout, perte totale, clonage clés toutes marques.
+            </p>
+          </CardContent>
+        </Card>
+
+        <Card className="bg-gray-900">
+          <CardContent className="p-4">
+            <Cpu className="mb-2" />
+            <h2 className="font-bold">ECU / Boîtes noires</h2>
+            <p className="text-sm text-gray-400">
+              Lecture, adaptation, reprogrammation et clonage.
+            </p>
+          </CardContent>
+        </Card>
+
+        <Card className="bg-gray-900">
+          <CardContent className="p-4">
+            <Car className="mb-2" />
+            <h2 className="font-bold">Diagnostic auto</h2>
+            <p className="text-sm text-gray-400">
+              Lecture défauts, réparation systèmes électroniques.
+            </p>
+          </CardContent>
+        </Card>
+      </div>
+
+      {/* Footer */}
+      <div className="p-6 text-center border-t border-gray-800">
+        <p className="text-gray-400">
+          © {new Date().getFullYear()} Garage Espoir - Tous droits réservés
+        </p>
+        <div className="flex justify-center gap-4 mt-2">
+          <Phone size={18} />
+          <span className="text-sm">Contact rapide disponible 7j/7</span>
+        </div>
+      </div>
+    </div>
+  );
+}
