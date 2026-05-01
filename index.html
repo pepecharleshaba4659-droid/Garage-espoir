@@ -1,80 +1,85 @@
-import { useState } from "react";
-import { Card, CardContent } from "@/components/ui/card";
-import { Button } from "@/components/ui/button";
-import { motion } from "framer-motion";
-import { Car, Key, Cpu, Phone } from "lucide-react";
+import { useState } from "react"; import { Card, CardContent } from "@/components/ui/card"; import { Button } from "@/components/ui/button"; import { motion } from "framer-motion"; import { Car, Key, Cpu, Phone } from "lucide-react";
 
-export default function GarageEspoirSite() {
-  const [open, setOpen] = useState(false);
+export default function GarageEspoirSite() { const [open, setOpen] = useState(false);
 
-  return (
-    <div className="min-h-screen bg-gray-950 text-white">
-      {/* Hero */}
-      <div className="p-6 text-center bg-gradient-to-b from-blue-900 to-gray-950">
-        <motion.h1
-          initial={{ opacity: 0, y: -20 }}
-          animate={{ opacity: 1, y: 0 }}
-          className="text-4xl font-bold"
+return ( <div className="min-h-screen bg-gray-950 text-white"> {/* Hero */} <div className="p-6 text-center bg-gradient-to-b from-blue-900 to-gray-950"> <motion.h1 initial={{ opacity: 0, y: -20 }} animate={{ opacity: 1, y: 0 }} className="text-4xl font-bold" > Garage Espoir </motion.h1> <p className="mt-2 text-gray-300"> Électronique automobile • Programmation clés • ECU • Diagnostic </p>
+
+<Button className="mt-4" onClick={() => setOpen(!open)}>
+      Contact rapide
+    </Button>
+
+    {open && (
+      <div className="mt-4 text-sm">
+        <a
+          href="https://wa.me/2250768066566?text=Bonjour%20Garage%20Espoir%2C%20j'ai%20un%20problème%20de%20clé%20ou%20diagnostic"
+          target="_blank"
+          className="block text-green-400 font-bold"
         >
-          Garage Espoir
-        </motion.h1>
-        <p className="mt-2 text-gray-300">
-          Électronique automobile • Programmation clés • ECU • Diagnostic
+          📲 Écrire sur WhatsApp
+        </a>
+
+        <a
+          href="tel:+2250768066566"
+          className="block mt-2 text-blue-400"
+        >
+          📞 Appeler maintenant
+        </a>
+      </div>
+    )}
+  </div>
+
+  {/* Services */}
+  <div className="grid md:grid-cols-3 gap-4 p-6">
+    <Card className="bg-gray-900">
+      <CardContent className="p-4">
+        <Key className="mb-2" />
+        <h2 className="font-bold">Programmation de clés</h2>
+        <p className="text-sm text-gray-400">
+          Ajout, perte totale, clonage clés toutes marques.
         </p>
-        <Button className="mt-4" onClick={() => setOpen(!open)}>
-          Contact rapide
-        </Button>
+      </CardContent>
+    </Card>
 
-        {open && (
-          <div className="mt-4 text-sm text-green-300">
-            WhatsApp: +225 XX XX XX XX XX
-          </div>
-        )}
-      </div>
-
-      {/* Services */}
-      <div className="grid md:grid-cols-3 gap-4 p-6">
-        <Card className="bg-gray-900">
-          <CardContent className="p-4">
-            <Key className="mb-2" />
-            <h2 className="font-bold">Programmation de clés</h2>
-            <p className="text-sm text-gray-400">
-              Ajout, perte totale, clonage clés toutes marques.
-            </p>
-          </CardContent>
-        </Card>
-
-        <Card className="bg-gray-900">
-          <CardContent className="p-4">
-            <Cpu className="mb-2" />
-            <h2 className="font-bold">ECU / Boîtes noires</h2>
-            <p className="text-sm text-gray-400">
-              Lecture, adaptation, reprogrammation et clonage.
-            </p>
-          </CardContent>
-        </Card>
-
-        <Card className="bg-gray-900">
-          <CardContent className="p-4">
-            <Car className="mb-2" />
-            <h2 className="font-bold">Diagnostic auto</h2>
-            <p className="text-sm text-gray-400">
-              Lecture défauts, réparation systèmes électroniques.
-            </p>
-          </CardContent>
-        </Card>
-      </div>
-
-      {/* Footer */}
-      <div className="p-6 text-center border-t border-gray-800">
-        <p className="text-gray-400">
-          © {new Date().getFullYear()} Garage Espoir - Tous droits réservés
+    <Card className="bg-gray-900">
+      <CardContent className="p-4">
+        <Cpu className="mb-2" />
+        <h2 className="font-bold">ECU / Boîtes noires</h2>
+        <p className="text-sm text-gray-400">
+          Lecture, adaptation, reprogrammation et clonage.
         </p>
-        <div className="flex justify-center gap-4 mt-2">
-          <Phone size={18} />
-          <span className="text-sm">Contact rapide disponible 7j/7</span>
-        </div>
-      </div>
+      </CardContent>
+    </Card>
+
+    <Card className="bg-gray-900">
+      <CardContent className="p-4">
+        <Car className="mb-2" />
+        <h2 className="font-bold">Diagnostic auto</h2>
+        <p className="text-sm text-gray-400">
+          Lecture défauts, réparation systèmes électroniques.
+        </p>
+      </CardContent>
+    </Card>
+  </div>
+
+  {/* Bouton WhatsApp flottant */}
+  <a
+    href="https://wa.me/2250768066566?text=Bonjour%20Garage%20Espoir%2C%20j'ai%20besoin%20d'aide"
+    target="_blank"
+    className="fixed bottom-6 right-6 bg-green-500 text-white px-4 py-3 rounded-full shadow-lg"
+  >
+    💬 WhatsApp
+  </a>
+
+  {/* Footer */}
+  <div className="p-6 text-center border-t border-gray-800">
+    <p className="text-gray-400">
+      © {new Date().getFullYear()} Garage Espoir - Tous droits réservés
+    </p>
+    <div className="flex justify-center gap-4 mt-2">
+      <Phone size={18} />
+      <span className="text-sm">Disponible 7j/7 pour vos urgences auto</span>
     </div>
-  );
-}
+  </div>
+</div>
+
+); }
