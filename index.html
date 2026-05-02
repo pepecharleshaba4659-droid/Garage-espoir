@@ -84,7 +84,19 @@ export default function GarageEspoirSite() {
         💬
       </a>
 
-      {/* FOOTER */}
+      {{/* GOOGLE MAPS */}
+      <div className="p-6">
+        <h2 className="text-center text-xl font-bold mb-4">Notre localisation</h2>
+        <div className="w-full h-64">
+          <iframe
+            className="w-full h-full rounded-xl"
+            src="https://www.google.com/maps?q=Yopougon%20Groupe%20Scolaire%20St%20Louis%2C%20Abidjan&output=embed"
+            loading="lazy"
+          ></iframe>
+        </div>
+      </div>
+
+      {/* FOOTER */}}
       <div className="p-6 text-center border-t border-gray-800">
         <p>Garage Espoir - Abidjan</p>
         <Phone />
